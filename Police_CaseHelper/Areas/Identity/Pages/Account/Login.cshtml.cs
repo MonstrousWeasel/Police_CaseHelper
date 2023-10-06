@@ -130,10 +130,18 @@ namespace Police_CaseHelper.Areas.Identity.Pages.Account
                         new Claim("amr", "pwd")
                     };
 
+                    var roles = await _signInManager.UserManager.GetRolesAsync(user);
 
-                    //await _signInManager.SignInWithClaimsAsync(user, Input.RememberMe, )
+                    if (roles.Any())
+                    {
+                        //Administrator, User
+                        var roleClaim = string.Join(",", roles);
+                        claims.Add(new Claim("Roles", roleClaim));
+                    }
 
-                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    await _signInManager.SignInWithClaimsAsync(user, Input.RememberMe, claims);
+
+                    //await _signInManager.SignInAsync(user, isPersistent: false);
 
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);

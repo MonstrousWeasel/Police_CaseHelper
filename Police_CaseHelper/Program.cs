@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Police_CaseHelper.Areas.Identity.Data;
+using Police_CaseHelper.Core;
 using Police_CaseHelper.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,7 +19,7 @@ builder.Services.AddControllersWithViews();
 
 #region Authorization
 
-//AddAuthorizationPolicies();
+AddAuthorizationPolicies();
 
 #endregion
 
@@ -50,4 +51,16 @@ app.MapRazorPages();
 app.Run();
 
 
+void AddAuthorizationPolicies()
+{
+    builder.Services.AddAuthorization(options =>
+    {
+        options.AddPolicy("Administrator", policy => policy.RequireClaim("Administrator"));
+    });
 
+    builder.Services.AddAuthorization(options =>
+    {
+        options.AddPolicy(Constants.Policies.RequireAdmin, policy => policy.RequireRole(Constants.Roles.Administrator));
+        options.AddPolicy(Constants.Policies.RequireUser, policy => policy.RequireRole(Constants.Roles.User));
+    });
+}
