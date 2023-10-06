@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Police_CaseHelper.Areas.Identity.Data;
+using System.Security.Claims;
 
 namespace Police_CaseHelper.Areas.Identity.Pages.Account
 {
@@ -123,6 +124,17 @@ namespace Police_CaseHelper.Areas.Identity.Pages.Account
                 var result = await _signInManager.CheckPasswordSignInAsync(user, Input.Password, false);
                 if (result.Succeeded)
                 {
+
+                    var claims = new List<Claim>
+                    {
+                        new Claim("amr", "pwd")
+                    };
+
+
+                    //await _signInManager.SignInWithClaimsAsync(user, Input.RememberMe, )
+
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }

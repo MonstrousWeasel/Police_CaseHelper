@@ -127,8 +127,9 @@ namespace Police_CaseHelper.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                //var user = CreateUser();
-                var user = new ApplicationUser { Email = Input.Email, PhoneNumber = Input.PhoneNumber, FirstName = Input.FirstName, Surname = Input.Surname };
+                var user = CreateUser();
+                user.FirstName = Input.FirstName;
+                user.Surname = Input.Surname;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
