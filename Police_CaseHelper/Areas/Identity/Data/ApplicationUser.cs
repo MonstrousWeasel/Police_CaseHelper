@@ -20,8 +20,8 @@ public class ApplicationUser : IdentityUser
     public string Surname { get; set; }
 
 
-    [PersonalData]
-    [Column(TypeName = "nvarchar(250)")]
-    public string UserName { get; set; }
+    //[PersonalData]
+    //[Column(TypeName = "nvarchar(250)")]
+    //public string UserName { get; set; }
 }
 

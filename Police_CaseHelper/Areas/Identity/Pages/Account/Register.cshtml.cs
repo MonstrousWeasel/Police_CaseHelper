@@ -87,10 +87,6 @@ namespace Police_CaseHelper.Areas.Identity.Pages.Account
 
 
             [Required]
-            [Display(Name = "User Name")]
-            public string UserName { get; set; }
-
-            [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
@@ -132,10 +128,10 @@ namespace Police_CaseHelper.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 //var user = CreateUser();
-                var user = new ApplicationUser { UserName = Input.UserName, Email = Input.Email, PhoneNumber = Input.PhoneNumber, FirstName = Input.FirstName, Surname = Input.Surname };
+                var user = new ApplicationUser { Email = Input.Email, PhoneNumber = Input.PhoneNumber, FirstName = Input.FirstName, Surname = Input.Surname };
 
-                await _userStore.SetUserNameAsync(user, Input.UserName, CancellationToken.None);
-                await _emailStore.SetEmailAsync(user, Input.UserName, CancellationToken.None);
+                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+                await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
