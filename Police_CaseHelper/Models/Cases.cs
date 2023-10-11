@@ -33,10 +33,12 @@ namespace Police_CaseHelper.Models
 
         //If offender in custody, what is the release date
         [DisplayName("Offender Release Date")]
+        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime? OffenderReleaseDate { get; set; }
 
         //When is the next court date
         [DisplayName("Next Court Date")]
+        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime? CourtDates { get; set; }
 
         //Where is the court locatin
@@ -44,6 +46,7 @@ namespace Police_CaseHelper.Models
         public string? CourtLocation { get; set; }
 
         //What is the next court date about, and results if applicable/available
+        [DisplayName("Case Details")]
         public string? Details { get; set; }
 
         //Has the offender got bail? Yes, No
