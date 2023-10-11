@@ -1,0 +1,116 @@
+﻿@model Police_CaseHelper.Models.Cases
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Cases</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CaseID" />
+            <div class="form-group">
+                <label asp-for="VictimName" class="control-label"></label>
+                <input asp-for="VictimName" class="form-control" />
+                <span asp-validation-for="VictimName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OffenderName" class="control-label"></label>
+                <input asp-for="OffenderName" class="form-control" />
+                <span asp-validation-for="OffenderName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Charges" class="control-label"></label>
+                <input asp-for="Charges" class="form-control" />
+                <span asp-validation-for="Charges" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OffenderPlea" class="control-label"></label>
+                <input asp-for="OffenderPlea" class="form-control" />
+                <span asp-validation-for="OffenderPlea" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="OffenderInCustody" /> @Html.DisplayNameFor(model => model.OffenderInCustody)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="OffenderReleaseDate" class="control-label"></label>
+                <input asp-for="OffenderReleaseDate" class="form-control" />
+                <span asp-validation-for="OffenderReleaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CourtDates" class="control-label"></label>
+                <input asp-for="CourtDates" class="form-control" />
+                <span asp-validation-for="CourtDates" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CourtLocation" class="control-label"></label>
+                <input asp-for="CourtLocation" class="form-control" />
+                <span asp-validation-for="CourtLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Details" class="control-label"></label>
+                <input asp-for="Details" class="form-control" />
+                <span asp-validation-for="Details" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Bail" /> @Html.DisplayNameFor(model => model.Bail)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="BailConditions" class="control-label"></label>
+                <input asp-for="BailConditions" class="form-control" />
+                <span asp-validation-for="BailConditions" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="BailBreached" /> @Html.DisplayNameFor(model => model.BailBreached)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="RequiredToBeArrested" /> @Html.DisplayNameFor(model => model.RequiredToBeArrested)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="WantedToArrest" /> @Html.DisplayNameFor(model => model.WantedToArrest)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="OfficerInChargeName" class="control-label"></label>
+                <input asp-for="OfficerInChargeName" class="form-control" />
+                <span asp-validation-for="OfficerInChargeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OfficerInChargeEmail" class="control-label"></label>
+                <input asp-for="OfficerInChargeEmail" class="form-control" />
+                <span asp-validation-for="OfficerInChargeEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OfficerInChargePhone" class="control-label"></label>
+                <input asp-for="OfficerInChargePhone" class="form-control" />
+                <span asp-validation-for="OfficerInChargePhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VictimUserName" class="control-label"></label>
+                <input asp-for="VictimUserName" class="form-control" />
+                <span asp-validation-for="VictimUserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

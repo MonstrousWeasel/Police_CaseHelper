@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Police_CaseHelper.Areas.Identity.Data;
+using Police_CaseHelper.Models;
 
 namespace Police_CaseHelper.Data;
 
@@ -19,4 +20,6 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         // For example, you can rename the ASP.NET Identity table names and more.
         // Add your customizations after calling base.OnModelCreating(builder);
     }
+
+    public DbSet<Police_CaseHelper.Models.Cases>? Cases { get; set; }
 }

@@ -1,0 +1,126 @@
+﻿@model Police_CaseHelper.Models.Cases
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Cases</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VictimName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VictimName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OffenderName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OffenderName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Charges)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Charges)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OffenderPlea)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OffenderPlea)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OffenderInCustody)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OffenderInCustody)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OffenderReleaseDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OffenderReleaseDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CourtDates)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CourtDates)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CourtLocation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CourtLocation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Details)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Details)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Bail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Bail)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BailConditions)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BailConditions)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BailBreached)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BailBreached)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RequiredToBeArrested)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RequiredToBeArrested)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.WantedToArrest)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.WantedToArrest)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OfficerInChargeName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OfficerInChargeName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OfficerInChargeEmail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OfficerInChargeEmail)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OfficerInChargePhone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OfficerInChargePhone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VictimUserName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VictimUserName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.CaseID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

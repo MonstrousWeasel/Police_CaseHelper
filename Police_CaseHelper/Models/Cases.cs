@@ -11,7 +11,7 @@ namespace Police_CaseHelper.Models
         public int CaseID { get; set; }
 
         //Victim's Name
-        [DisplayName("Victims Name")]
+        [DisplayName("Victim Name")]
         [Required]
         public string? VictimName { get; set; }
 
@@ -81,6 +81,7 @@ namespace Police_CaseHelper.Models
         public string? OfficerInChargePhone { get; set; }
 
         //Victim User name. When a victim logs into the application, they will only see the cases that are linked to them.
+        [DisplayName("Victim Username")]
         public string? VictimUserName { get; set; }
     }
 }

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Police_CaseHelper.Models.Cases>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.CaseID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VictimName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OffenderName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Charges)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfficerInChargeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VictimUserName)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CaseID">Edit</a>
+                <br/>
+                <a asp-action="Details" asp-route-id="@item.CaseID">Details</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CaseID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VictimName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OffenderName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Charges)
+                <br/>
+                @Html.DisplayFor(modelItem => item.OffenderPlea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OfficerInChargeName)
+                <br/>
+                @Html.DisplayFor(modelItem => item.OfficerInChargeEmail)
+                <br/>
+                @Html.DisplayFor(modelItem => item.OfficerInChargePhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VictimUserName)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
