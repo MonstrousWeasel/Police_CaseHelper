@@ -1,4 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using Police_CaseHelper.Areas.Identity.Data;
+using Police_CaseHelper.Data;
 using Police_CaseHelper.Models;
 using System.Diagnostics;
 
@@ -6,15 +10,19 @@ namespace Police_CaseHelper.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
+        
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
+            var user = "leroy.gibbs";
+            SqlParameter username = new("@username", user);
+            DatabaseManager.GetUserCases = _context.UserCases.FromSqlRaw("EXEC [dbo].[spUserCases] @username", username).ToList();
             return View();
         }
 

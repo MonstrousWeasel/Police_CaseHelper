@@ -21,5 +21,6 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         // Add your customizations after calling base.OnModelCreating(builder);
     }
 
-    public DbSet<Police_CaseHelper.Models.Cases>? Cases { get; set; }
+    public DbSet<Cases>? Cases { get; set; }
+    public DbSet<UserCases>? UserCases { get; set; }
 }
