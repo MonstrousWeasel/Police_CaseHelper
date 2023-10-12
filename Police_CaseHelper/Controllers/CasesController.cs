@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Police_CaseHelper.Core;
 using Police_CaseHelper.Data;
 using Police_CaseHelper.Models;
 
@@ -20,6 +22,7 @@ namespace Police_CaseHelper.Controllers
         }
 
         // GET: Cases
+        [Authorize(Policy = Constants.Policies.RequireAdmin)]
         public async Task<IActionResult> Index()
         {
               return _context.Cases != null ? 
