@@ -21,16 +21,22 @@ namespace Police_CaseHelper.Controllers
             _context = context;
         }
 
-        // GET: Cases
+
+        #region Index
+        //Users with Administration Rights have access, if not logged in get sent to log in page. If someone without access tries to access, they will get access denied
         [Authorize(Policy = Constants.Policies.RequireAdmin)]
         public async Task<IActionResult> Index()
         {
-              return _context.Cases != null ? 
-                          View(await _context.Cases.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Cases'  is null.");
+            return _context.Cases != null ?
+                        View(await _context.Cases.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Cases'  is null.");
         }
+        #endregion
 
+        #region Details
         // GET: Cases/Details/5
+        //Users with Administration and User Rights have access, if not logged in get sent to log in page. If someone without access tries to access, they will get access denied
+        [Authorize(Roles = $"{Constants.Roles.Administrator},{Constants.Roles.User}")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Cases == null)
@@ -46,29 +52,9 @@ namespace Police_CaseHelper.Controllers
             }
 
             return View(cases);
-        }
+        } 
+        #endregion
 
-        // GET: Cases/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Cases/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CaseID,VictimName,OffenderName,Charges,OffenderPlea,OffenderInCustody,OffenderReleaseDate,CourtDates,CourtLocation,Details,Bail,BailConditions,BailBreached,RequiredToBeArrested,WantedToArrest,OfficerInChargeName,OfficerInChargeEmail,OfficerInChargePhone,VictimUserName")] Cases cases)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(cases);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(cases);
-        }
 
         // GET: Cases/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -121,9 +107,11 @@ namespace Police_CaseHelper.Controllers
             return View(cases);
         }
 
+        #region CasesExists
         private bool CasesExists(int id)
         {
-          return (_context.Cases?.Any(e => e.CaseID == id)).GetValueOrDefault();
-        }
+            return (_context.Cases?.Any(e => e.CaseID == id)).GetValueOrDefault();
+        } 
+        #endregion
     }
 }
