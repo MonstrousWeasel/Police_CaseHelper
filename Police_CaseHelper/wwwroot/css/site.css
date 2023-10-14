@@ -1,42 +1,79 @@
 html {
-  font-size: 14px;
+    font-size: 16px;
+    background-color: #D9D9D9;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #D9D9D9;
+}
+
+container{
+    padding: 10px;
 }
 
 .btn-red {
     color: #fff;
     background-color: #dc3545;
-    border-color: #dc3545;
+    border-color: #fff;
+    margin: 2px;
 }
 
     .btn-red:hover {
         color: #fff;
         background-color: #bb2d3b;
-        border-color: #b02a37;
+        border-color: #fff;
+        margin: 2px;
     }
 
 .btn-yellow {
     color: #000;
     background-color: #FFA825;
-    border-color: #dc3545;
+    border-color: #fff;
+    margin: 2px;
 }
 
     .btn-yellow:hover {
         color: #fff;
-        background-color: #bb2d3b;
-        border-color: #b02a37;
+        background-color: #FF9D0D;
+        border-color: #fff;
+        margin: 2px;
     }
+
+.navbar-background {
+    --bs-bg-opacity: 1;
+    background-color: #FFB84D;
+    margin:10px;
+}
+
+.navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding:10px;
+}
+
+.navbar-brand {
+    padding: 10px;
+    font-size: 1.25rem;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.col-md-12{
+    padding-left:15px;
+    padding-right: 10px
+}
