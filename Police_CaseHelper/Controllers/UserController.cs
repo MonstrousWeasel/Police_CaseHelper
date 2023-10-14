@@ -101,6 +101,7 @@ namespace Police_CaseHelper.Controllers
             user.FirstName = data.User.FirstName;
             user.Surname = data.User.Surname;
             user.Email = data.User.Email;
+            user.PhoneNumber = data.User.PhoneNumber;
 
             _unitOfWork.User.UpdateUser(user);
 
