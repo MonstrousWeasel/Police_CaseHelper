@@ -30,12 +30,12 @@ container{
     margin: 2px;
 }
 
-    .btn-red:hover {
-        color: #fff;
-        background-color: #bb2d3b;
-        border-color: #fff;
-        margin: 2px;
-    }
+	.btn-red:hover {
+		color: #fff;
+		background-color: #bb2d3b;
+	/* border-color: #fff; */
+		margin: 2px;
+	}
 
 .btn-yellow {
     color: #000;
@@ -44,12 +44,12 @@ container{
     margin: 2px;
 }
 
-    .btn-yellow:hover {
-        color: #fff;
-        background-color: #FF9D0D;
-        border-color: #fff;
-        margin: 2px;
-    }
+	.btn-yellow:hover {
+		color: #fff;
+		background-color: #FF9D0D;
+		/* border-color: #fff; */
+		margin: 2px;
+	}
 
 .navbar-background {
     --bs-bg-opacity: 1;
@@ -64,6 +64,7 @@ container{
     align-items: center;
     justify-content: space-between;
     padding:10px;
+	box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
 }
 
 .navbar-brand {
@@ -77,3 +78,15 @@ container{
     padding-left:15px;
     padding-right: 10px
 }
+
+.nav-item {
+  border: 1px solid black; 
+  border-radius: 0.2rem;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
+  /* Ensure correct height */
+  line-height: 20px;
+}
+
+	.nav-item:hover {
+		border-color: #fff;
+	}
