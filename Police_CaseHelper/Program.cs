@@ -2,7 +2,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Police_CaseHelper.Areas.Identity.Data;
 using Police_CaseHelper.Core;
+using Police_CaseHelper.Core.Repositories;
 using Police_CaseHelper.Data;
+using Police_CaseHelper.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection");
@@ -23,7 +25,7 @@ AddAuthorizationPolicies();
 
 #endregion
 
-//AddScoped();
+AddScoped();
 
 var app = builder.Build();
 
@@ -63,4 +65,11 @@ void AddAuthorizationPolicies()
         options.AddPolicy(Constants.Policies.RequireAdmin, policy => policy.RequireRole(Constants.Roles.Administrator));
         options.AddPolicy(Constants.Policies.RequireUser, policy => policy.RequireRole(Constants.Roles.User));
     });
+}
+
+void AddScoped()
+{
+    builder.Services.AddScoped<IUserRepository, UserRepository>();
+    builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+    builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 }
