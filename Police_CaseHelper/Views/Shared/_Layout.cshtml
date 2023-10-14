@@ -1,69 +1,24 @@
-﻿@using Police_CaseHelper.Areas.Identity.Data
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Police_CaseHelper</title>
-    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
-     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /> 
-    @* <link rel="stylesheet" href="~/Police_CaseHelper.styles.css" asp-append-version="true" /> *@
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <partial name="_ScriptsCSS.cshtml" />
 </head>
 <body>
     <div class="container">
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Police_CaseHelper</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav mr-auto">
-                        @* List of all cases - Admin only only have access - Users wont see this*@
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cases" asp-action="Index">Cases</a>
-                        </li>
 
-                        @* List of Cases based on the user logged in *@
-                        <li class="nav-item text-dark dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                My Cases
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                @foreach (var item in DatabaseManager.GetUserCases)
-                                {
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Cases" asp-action="Details" asp-route-id="@item.CaseID">Case @item.CaseID</a>
-                                }
-                            </div>
-                        </li>
-                        
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-                
-        </nav>
-
-
-    </header>
-    
+        <partial name="_Header.cshtml" />   
+        
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
+
+        <partial name="_Footer.cshtml" />
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - Police_CaseHelper - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
-    @* Need this script for dropdown menus to work *@
-    <script src="~/vendor/bootstrap/bootstrap.js"></script>
+    
+    <partial name="_ScriptsJS.cshtml" />
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
