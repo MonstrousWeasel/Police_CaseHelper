@@ -16,3 +16,27 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.btn-red {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+    .btn-red:hover {
+        color: #fff;
+        background-color: #bb2d3b;
+        border-color: #b02a37;
+    }
+
+.btn-yellow {
+    color: #000;
+    background-color: #FFA825;
+    border-color: #dc3545;
+}
+
+    .btn-yellow:hover {
+        color: #fff;
+        background-color: #bb2d3b;
+        border-color: #b02a37;
+    }

@@ -14,7 +14,7 @@
         <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
             <ul class="navbar-nav mr-auto">
                 @* Panic Alarm - When the button is clicked, it will automatically call 111 (This won't work in the DEMO version)*@
-                <li class="nav-item btn-danger">
+                <li class="nav-item btn-red">
                     <a class="nav-link text-light" asp-area="" asp-controller="Panic" asp-action="Index">Panic Alarm</a>
                 </li>
 
@@ -25,10 +25,15 @@
                     // Only displays if the user is logged in with "Administrator" Rights
                     if (User.IsInRole("Administrator"))
                     {
+                        @* List of all users - Admin only only have access - Users wont see this*@
+                        <li class="nav-item btn-yellow">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Users</a>
+                        </li>
                         @* List of all cases - Admin only only have access - Users wont see this*@
-                        <li class="nav-item">
+                        <li class="nav-item btn-yellow">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Cases" asp-action="Index">Cases</a>
                         </li>
+
                     }
 
                     // Only displays if the user is logged in with "User" Rights
