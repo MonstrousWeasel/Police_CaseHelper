@@ -28,6 +28,9 @@ namespace Police_CaseHelper.Areas.Identity.Pages.Account
         {
             await _signInManager.SignOutAsync();
             _logger.LogInformation("User logged out.");
+
+            //Return DatabaseManager GetUserName to empty
+            DatabaseManager.GetUserName = "";
             if (returnUrl != null)
             {
                 return LocalRedirect(returnUrl);

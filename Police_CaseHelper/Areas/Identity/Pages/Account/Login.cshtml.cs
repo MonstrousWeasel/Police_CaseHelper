@@ -144,6 +144,10 @@ namespace Police_CaseHelper.Areas.Identity.Pages.Account
                     //await _signInManager.SignInAsync(user, isPersistent: false);
 
                     _logger.LogInformation("User logged in.");
+
+                    //If login is successful, update DatabaseManager GetUserName with current username
+                    DatabaseManager.GetUserName = user.ToString();
+
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
