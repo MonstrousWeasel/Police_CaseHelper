@@ -1,4 +1,9 @@
-﻿@using Police_CaseHelper.Areas.Identity.Data
+﻿@using Microsoft.AspNetCore.Identity;
+@using Police_CaseHelper.Areas.Identity.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Police_CaseHelper</a>
@@ -8,22 +13,47 @@
         </button>
         <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
             <ul class="navbar-nav mr-auto">
-                @* List of all cases - Admin only only have access - Users wont see this*@
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Cases" asp-action="Index">Cases</a>
+                @* Panic Alarm - When the button is clicked, it will automatically call 111 (This won't work in the DEMO version)*@
+                <li class="nav-item btn-danger">
+                    <a class="nav-link text-light" asp-area="" asp-controller="Panic" asp-action="Index">Panic Alarm</a>
                 </li>
 
-                @* List of Cases based on the user logged in *@
-                <li class="nav-item text-dark dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        My Cases
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        @foreach (var item in DatabaseManager.GetUserCases)
-                        {
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cases" asp-action="Details" asp-route-id="@item.CaseID">Case @item.CaseID</a>
-                        }
-                    </div>
+
+                @* Only display this if the user is signed in *@
+                @if (SignInManager.IsSignedIn(User)){
+
+                    // Only displays if the user is logged in with "Administrator" Rights
+                    if (User.IsInRole("Administrator"))
+                    {
+                        @* List of all cases - Admin only only have access - Users wont see this*@
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Cases" asp-action="Index">Cases</a>
+                        </li>
+                    }
+
+                    // Only displays if the user is logged in with "User" Rights
+                    if (User.IsInRole("User"))
+                    {
+                        @* List of Cases based on the user logged in *@
+                        <li class="nav-item text-dark dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                My Cases
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @foreach (var item in DatabaseManager.GetUserCases)
+                                {
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Cases" asp-action="Details" asp-route-id="@item.CaseID">Case @item.CaseID</a>
+                                }
+                            </div>
+                        </li>
+                    }
+                    
+                }
+
+                
+                @* Court Processes - Takes the user to an external link on the court process*@
+                <li class="nav-item">
+                    <a class="nav-link text-dark" target="_blank" href="https://www.justice.govt.nz/courts/civil/court-process/">Court Processes</a>
                 </li>
 
             </ul>
