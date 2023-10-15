@@ -5,8 +5,6 @@ N.Torres@2023
 leroy.gibbs
 Gibbs@2023
 
-traci.saxon
-Saxon@2023
 
 -- Administrator --
 test.user
