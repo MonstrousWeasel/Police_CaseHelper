@@ -6,6 +6,7 @@
 
 <h1>@ViewData["Title"]</h1>
 
+@* Cases Table - CaseID, Victim Name, Offender Name, Charges, Officer Details, Victim User Name *@
 <table class="table">
     <thead>
         <tr>
@@ -31,36 +32,37 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.CaseID">Details</a>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CaseID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VictimName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OffenderName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Charges)
-                <br/>
-                @Html.DisplayFor(modelItem => item.OffenderPlea)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OfficerInChargeName)
-                <br/>
-                @Html.DisplayFor(modelItem => item.OfficerInChargeEmail)
-                <br/>
-                @Html.DisplayFor(modelItem => item.OfficerInChargePhone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VictimUserName)
-            </td>
-        </tr>
-}
+        @* Foreach item in the db display them in the table *@
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.CaseID">Details</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CaseID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VictimName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OffenderName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Charges)
+                    <br/>
+                    @Html.DisplayFor(modelItem => item.OffenderPlea)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OfficerInChargeName)
+                    <br/>
+                    @Html.DisplayFor(modelItem => item.OfficerInChargeEmail)
+                    <br/>
+                    @Html.DisplayFor(modelItem => item.OfficerInChargePhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VictimUserName)
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

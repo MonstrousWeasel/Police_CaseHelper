@@ -27,6 +27,7 @@ namespace Police_CaseHelper.Controllers
         [Authorize(Policy = Constants.Policies.RequireAdmin)]
         public async Task<IActionResult> Index()
         {
+            // Return the cases
             return _context.Cases != null ?
                         View(await _context.Cases.ToListAsync()) :
                         Problem("Entity set 'ApplicationDbContext.Cases'  is null.");
@@ -56,6 +57,7 @@ namespace Police_CaseHelper.Controllers
         #endregion
 
         #region CasesExists
+        //Checks if the case exists
         private bool CasesExists(int id)
         {
             return (_context.Cases?.Any(e => e.CaseID == id)).GetValueOrDefault();

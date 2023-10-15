@@ -22,21 +22,17 @@ namespace Police_CaseHelper.Controllers
 
         public IActionResult Index()
         {
-            //find the user
+            //find the user that is currently logged in
             var user = DatabaseManager.GetUserName;
 
+            //Only do this, if the user is logged in
             if (user != null) {
                 // var user = _signInManager.UserManager.FindByIdAsync
-                //var user = "leroy.gibbs";
                 SqlParameter username = new("@username", user);
                 DatabaseManager.GetUserCases = _context.UserCases.FromSqlRaw("EXEC [dbo].[spUserCases] @username", username).ToList();
             }
             
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
+            //Return View
             return View();
         }
 

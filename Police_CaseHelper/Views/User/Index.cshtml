@@ -13,6 +13,7 @@
         <hr />
         @if (@Model != null && @Model.Any())
         {
+            @* User Table - First Name, Surname, Username, Phone Number, Edit *@
             <table class="table">
                 <thead>
                     <tr>
@@ -25,6 +26,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @* Foreach user in the DB, display them in the table *@
                     @foreach (var user in Model)
                     {
                         <tr>

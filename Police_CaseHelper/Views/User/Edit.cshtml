@@ -44,6 +44,7 @@
                 @* Roles *@
                 <h4 class="mb-3">Roles</h4>
                 <div class="my-3">
+                    @* Show all roles *@
                     @for (int i = 0; i < @Model.Roles.Count(); i++)
                     {
                         <div class="form-check">
@@ -58,7 +59,7 @@
             </div>
 
             <hr />
-
+            @* Submit Button - Save *@
             <button class="w-100 btn btn-primary btn-lg" type="submit">Save</button>
         }
     </div>
