@@ -1,14 +1,11 @@
 ﻿@model IEnumerable<Police_CaseHelper.Models.Cases>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Cases";
 }
 
-<h1>Index</h1>
+<h1>@ViewData["Title"]</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -37,8 +34,6 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.CaseID">Edit</a>
-                <br/>
                 <a asp-action="Details" asp-route-id="@item.CaseID">Details</a>
             </td>
             <td>
