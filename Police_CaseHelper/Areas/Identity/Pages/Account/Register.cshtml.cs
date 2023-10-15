@@ -87,7 +87,7 @@ namespace Police_CaseHelper.Areas.Identity.Pages.Account
 
 
             [Required]
-            [Display(Name = "Email")]
+            [Display(Name = "Username")]
             public string Email { get; set; }
 
             [Phone]

@@ -1,0 +1,14 @@
+﻿@inject SignInManager<ApplicationUser> SignInManager
+
+<ul class="nav nav-pills flex-column">
+    <li class="nav-item btn-yellow">
+        <a class="nav-link text-dark @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a>
+    </li>
+    <li class="nav-item btn-yellow">
+        <a class="nav-link text-dark @ManageNavPages.EmailNavClass(ViewContext)" id="email" asp-page="./Email">Username</a>
+    </li>
+    <li class="nav-item btn-yellow">
+        <a class="nav-link text-dark @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">Password</a>
+    </li>
+    
+</ul>
