@@ -18,8 +18,11 @@
             <ul class="navbar-nav mr-auto">
                 @* Panic Alarm - When the button is clicked, it will automatically call 111 (This won't work in the DEMO version)*@
                 <li class="nav-item btn-red">
-                    <a class="nav-link text-light" asp-area="" asp-controller="Panic" asp-action="Index">Panic Alarm</a>
+                    <a class="nav-link text-light" data-toggle="modal" data-target="#panicModel">
+                        Panic Alarm
+                    </a>
                 </li>
+                
 
 
                 @* Only display this if the user is signed in *@
@@ -72,3 +75,18 @@
 
 
 </header>
+
+<!-- Modal -->
+<div class="modal fade" id="panicModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Calling 111</h5>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            <div class="modal-body">
+                <p>This is a demo so does not currently work.</p>
+            </div>
+        </div>
+    </div>
+</div>
