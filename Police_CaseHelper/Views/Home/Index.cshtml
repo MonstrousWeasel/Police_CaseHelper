@@ -1,8 +1,18 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    ViewData["Header"] = "Welcome to Insight";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row">
+    <div class="col-md-6 offset-3 text-center">
+        <br />
+        <h1 class="display-4">@ViewData["Header"]</h1>
+        <br />
+        <p>
+            This is a place where you will recieve and view important information from the courts that are related to your case.
+            <br/>
+            <br />
+            To view your cases, please login with the login details you were given.
+        </p>
+    </div>
 </div>
