@@ -53,7 +53,7 @@
                             <div class="dropdown-menu navbar-background" aria-labelledby="navbarDropdown">
                                 @foreach (var item in DatabaseManager.GetUserCases)
                                 {
-                                    <a class="nav-link text-dark btn-yellow" asp-area="" asp-controller="Cases" asp-action="Details" asp-route-id="@item.CaseID">Case @item.CaseID</a>
+                                    <a class="nav-link nav-item text-dark btn-yellow" asp-area="" asp-controller="Cases" asp-action="Details" asp-route-id="@item.CaseID">Case @item.CaseID</a>
                                 }
                             </div>
                         </li>
