@@ -23,4 +23,5 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 
     public DbSet<Cases>? Cases { get; set; }
     public DbSet<UserCases>? UserCases { get; set; }
+    public DbSet<UserRoles>? UserRoles { get; set; }
 }
