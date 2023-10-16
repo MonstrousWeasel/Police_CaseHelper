@@ -51,6 +51,10 @@ container{
 		margin: 2px;
 	}
 
+.btn-link{
+    text-decoration: none;
+}
+
 .navbar-background {
     --bs-bg-opacity: 1;
     background-color: #FFB84D;
